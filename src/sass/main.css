@@ -1,0 +1,80 @@
+body {
+  font-family: "Open Sans";
+  color: #5c5c5c;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+#content-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 768px) {
+  #content-container {
+    flex-direction: row;
+  }
+}
+#add-button {
+  background-color: #1a1f71;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  margin-right: 10px;
+  color: #ffffff;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+  font-size: 40px;
+  border: 0px;
+  cursor: pointer;
+}
+#add-button:hover {
+  background-color: #003ea9;
+}
+
+#card-small {
+  min-width: 200px;
+  min-height: 250px;
+  margin: 15px;
+  padding: 25px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#visa-image {
+  height: 34px;
+  width: 104px;
+}
+
+#card-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+@media screen and (min-width: 768px) {
+  #card-container {
+    flex-direction: row;
+  }
+}
+#home-page-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 1500px;
+}
+
+#add-button-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#top-nav {
+  padding: 20px;
+}/*# sourceMappingURL=main.css.map */

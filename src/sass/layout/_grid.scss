@@ -1,0 +1,23 @@
+#card-container{
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap:wrap;
+}
+
+@include mq(medium){
+    #card-container{
+        flex-direction: row;
+    }
+}
+
+#home-page-container{
+    display:flex;
+    flex-direction: column;
+    max-width: 1500px;
+}
+#add-button-container{
+    display: flex;
+    justify-content: end;
+}
+

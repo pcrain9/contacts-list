@@ -1,0 +1,16 @@
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+#content-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+@include mq(medium) {
+  #content-container {
+    flex-direction: row;
+  }
+}

@@ -1,0 +1,20 @@
+/// @type List
+$text-font: "Open Sans" !default;
+
+/// @type Color
+$primary-text: #5c5c5c;
+$secondary-text: #ffffff;
+
+/// @type Color
+$primary-color: #1a1f71;
+$primary-color-hover: #003ea9;
+
+/// @type BoxShadow
+$box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+//bootstrap-defined breakpoints
+$breakpoints: (
+  small: 576px,
+  medium: 768px,
+  large: 992px,
+  xLarge: 1200px,
+);

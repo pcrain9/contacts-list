@@ -1,0 +1,19 @@
+#add-button{
+    background-color: $primary-color;
+    border-radius: 50%;
+    height:50px;
+    width:50px;
+    margin-right:10px;
+    color:$secondary-text;
+    box-shadow: $box-shadow;
+    font-size: 40px;
+    border: 0px;
+    cursor:pointer;
+    &:hover{
+        background-color: $primary-color-hover;
+    }
+}
+
+#card-small-button-view{}
+#card-small-button-edit{}
+#card-small-button-delete{}
