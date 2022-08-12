@@ -1,14 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import VisaLogo from "../resources/visa-logo.png";
 
 function Header() {
   return (
     <div>
       <nav id="top-nav">
-        <Link to="/">
-          <img id="visa-image" src={VisaLogo} alt="null" />
-        </Link>
+        <div className="top-nav-title-container">
+          <Link to="/" id="top-nav-link">
+            <h2>Contact List</h2>
+          </Link>
+        </div>
       </nav>
     </div>
   );

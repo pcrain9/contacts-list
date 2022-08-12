@@ -13,6 +13,8 @@ body {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  flex-wrap: no-wrap;
+  align-items: normal;
 }
 
 @media screen and (min-width: 768px) {
@@ -29,6 +31,7 @@ body {
   color: #ffffff;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
   font-size: 40px;
+  font-weight: bold;
   border: 0px;
   cursor: pointer;
 }
@@ -36,15 +39,250 @@ body {
   background-color: #003ea9;
 }
 
+#card-small-button-view {
+  background-color: #1a1f71;
+  color: #ffffff;
+  border: 1px solid white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: opacity 0.2s ease-in, top 0.2s ease-in;
+}
+#card-small-button-view:hover {
+  background-color: #003ea9;
+}
+
+#card-small-button-edit {
+  background-color: #f7b600;
+  color: #ffffff;
+  border: 1px solid white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: opacity 0.2s ease-in, top 0.2s ease-in;
+}
+#card-small-button-edit:hover {
+  background-color: #FFD700;
+}
+
+#card-small-button-delete {
+  background-color: #D50000;
+  color: #ffffff;
+  border: 1px solid white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: opacity 0.2s ease-in, top 0.2s ease-in;
+}
+#card-small-button-delete:hover {
+  background-color: #ef4c4c;
+}
+
+#large-back-btn {
+  background-color: white;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  padding-top: 5px;
+  color: #1a1f71;
+  border: 1.5px solid #1a1f71;
+  cursor: pointer;
+}
+
+#card-large-button-edit {
+  background-color: #f7b600;
+  color: #ffffff;
+  border: 1px solid white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: opacity 0.2s ease-in, top 0.2s ease-in;
+  width: 150px;
+}
+#card-large-button-edit:hover {
+  background-color: #FFD700;
+}
+
+#card-large-button-delete {
+  background-color: #D50000;
+  color: #ffffff;
+  border: 1px solid white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: opacity 0.2s ease-in, top 0.2s ease-in;
+  width: 150px;
+}
+#card-large-button-delete:hover {
+  background-color: #ef4c4c;
+}
+
 #card-small {
-  min-width: 200px;
-  min-height: 250px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  flex-wrap: no-wrap;
+  align-items: normal;
+  width: 200px;
+  height: 250px;
   margin: 15px;
   padding: 25px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+}
+
+.card-button-container {
   display: flex;
-  flex-direction: column;
+  justify-content: space-evenly;
+  flex-direction: row;
+  flex-wrap: no-wrap;
+  align-items: normal;
+}
+
+.card-small-info-container {
+  display: flex;
+  justify-content: normal;
+  flex-direction: row;
+  flex-wrap: no-wrap;
+  align-items: center;
+}
+
+#card-large {
+  display: flex;
   justify-content: space-between;
+  flex-direction: column;
+  flex-wrap: no-wrap;
+  align-items: normal;
+  min-width: 500px;
+  min-height: 550px;
+  margin: 15px;
+  padding: 25px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+}
+
+#card-large-top-container {
+  display: flex;
+  justify-content: normal;
+  flex-direction: column;
+  flex-wrap: no-wrap;
+  align-items: normal;
+}
+
+#card-large-top-user-info-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  flex-wrap: no-wrap;
+  align-items: normal;
+  width: 100%;
+}
+
+#card-large-user-info-container {
+  display: flex;
+  justify-content: normal;
+  flex-direction: column;
+  flex-wrap: no-wrap;
+  align-items: center;
+}
+
+.card-large-other-info-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: no-wrap;
+  align-items: center;
+}
+
+.card-icon-container {
+  margin-right: 10px;
+}
+
+#card-large-back-btn-container {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+  flex-wrap: no-wrap;
+  align-items: normal;
+}
+
+#form {
+  box-shadow: rgba(18, 79, 222, 0.15) 0px 2px 8px;
+  border-radius: 5px;
+  border: 1px solid #5c5c5c;
+  min-width: 400px;
+  min-height: 500px;
+  padding: 10px;
+}
+
+#add-user-title-text {
+  text-align: center;
+}
+
+#form-contents-container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  flex-wrap: no-wrap;
+  align-items: normal;
+}
+
+.add-user-form-content {
+  display: flex;
+  justify-content: normal;
+  flex-direction: column;
+  flex-wrap: no-wrap;
+  align-items: normal;
+  margin: 25px;
+}
+
+.asterisk {
+  color: #D50000;
+}
+
+.add-user-input {
+  height: 30px;
+  margin-top: 3px;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  border-radius: 5px;
+  outline: none;
+  font-family: "Open Sans";
+}
+.add-user-input:focus {
+  border: 2.5px solid #1a1f71;
+}
+
+#add-user-button-container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  flex-wrap: no-wrap;
+  align-items: normal;
+  margin: 25px 0px;
+}
+
+#add-user-cancel-button {
+  background-color: #D50000;
+  color: #ffffff;
+  border: 1px solid white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: opacity 0.2s ease-in, top 0.2s ease-in;
+  height: 40px;
+  width: 165px;
+  font-weight: bold;
+}
+#add-user-cancel-button:hover {
+  background-color: #ef4c4c;
+}
+
+#add-user-submit-button {
+  background-color: #1a1f71;
+  color: #ffffff;
+  border: 1px solid white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: opacity 0.2s ease-in, top 0.2s ease-in;
+  height: 40px;
+  width: 165px;
+  font-weight: bold;
+}
+#add-user-submit-button:hover {
+  background-color: #003ea9;
 }
 
 #visa-image {
@@ -57,6 +295,7 @@ body {
   justify-content: center;
   flex-direction: column;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 @media screen and (min-width: 768px) {
@@ -67,14 +306,40 @@ body {
 #home-page-container {
   display: flex;
   flex-direction: column;
+  flex-wrap: no-wrap;
+  align-items: normal;
   max-width: 1500px;
 }
 
 #add-button-container {
   display: flex;
   justify-content: flex-end;
+  flex-direction: row;
+  flex-wrap: no-wrap;
+  align-items: normal;
 }
 
 #top-nav {
   padding: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: no-wrap;
+  align-items: normal;
+}
+
+.top-nav-title-container {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  flex-wrap: no-wrap;
+  align-items: center;
+}
+
+#top-nav-link {
+  text-decoration: none;
+  color: #5c5c5c;
+}
+#top-nav-link:hover {
+  color: #1a1f71;
 }/*# sourceMappingURL=main.css.map */

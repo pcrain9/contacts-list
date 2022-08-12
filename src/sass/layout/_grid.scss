@@ -1,8 +1,5 @@
 #card-container{
-    display:flex;
-    justify-content: center;
-    flex-direction: column;
-    flex-wrap:wrap;
+    @include flex($center, $column, $wrap, $center);
 }
 
 @include mq(medium){
@@ -12,12 +9,10 @@
 }
 
 #home-page-container{
-    display:flex;
-    flex-direction: column;
+    @include flex(null, $column);
     max-width: 1500px;
 }
 #add-button-container{
-    display: flex;
-    justify-content: end;
+    @include flex($flex-end);
 }
 

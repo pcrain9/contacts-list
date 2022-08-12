@@ -1,19 +1,46 @@
-#add-button{
-    background-color: $primary-color;
-    border-radius: 50%;
-    height:50px;
-    width:50px;
-    margin-right:10px;
-    color:$secondary-text;
-    box-shadow: $box-shadow;
-    font-size: 40px;
-    border: 0px;
-    cursor:pointer;
-    &:hover{
-        background-color: $primary-color-hover;
-    }
+#add-button {
+  background-color: $primary-color;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  margin-right: 10px;
+  color: $secondary-text;
+  box-shadow: $box-shadow;
+  font-size: 40px;
+  font-weight:bold;
+  border: 0px;
+  cursor: pointer;
+  &:hover {
+    background-color: $primary-color-hover;
+  }
 }
 
-#card-small-button-view{}
-#card-small-button-edit{}
-#card-small-button-delete{}
+#card-small-button-view {
+  @include btn($primary-color, $primary-color-hover);
+}
+#card-small-button-edit {
+  @include btn($secondary-color, $secondary-color-hover);
+}
+#card-small-button-delete {
+  @include btn($danger-color, $danger-color-hover);
+}
+
+#large-back-btn{
+  background-color: white;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  padding-top:5px;
+  color: $primary-color;
+  border: 1.5px solid $primary-color;
+  cursor: pointer;
+}
+
+#card-large-button-edit{
+  @include btn($secondary-color, $secondary-color-hover);
+  width:150px;
+}
+#card-large-button-delete{
+  @include btn($danger-color, $danger-color-hover);
+  width:150px;
+}

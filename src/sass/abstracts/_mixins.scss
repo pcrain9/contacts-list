@@ -1,11 +1,50 @@
 //mixin that will handle breakpoints, citation: https://jonsuh.com/blog/managing-responsive-breakpoints-with-sass-maps/
 @mixin mq($mq-breakpoint, $mq-breakpoints: $breakpoints) {
+  @if map-has-key($mq-breakpoints, $mq-breakpoint) {
+    $mq-breakpoint: map-get($mq-breakpoints, $mq-breakpoint);
+  }
 
-    @if map-has-key($mq-breakpoints, $mq-breakpoint){
-        $mq-breakpoint: map-get($mq-breakpoints, $mq-breakpoint);
-    }
+  @media screen and (min-width: #{$mq-breakpoint}) {
+    @content;
+  }
+}
 
-    @media screen and (min-width: #{$mq-breakpoint}) {
-        @content
-    }
+@mixin btn($bg-color, $bg-color-hover) {
+  background-color: $bg-color;
+  color: $secondary-text;
+  border: 1px solid white;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: opacity 0.2s ease-in, top 0.2s ease-in;
+  &:hover {
+    background-color: $bg-color-hover;
+  }
+  @content;
+}
+
+@mixin flex(
+  $justify: $normal,
+  $direction: $row,
+  $wrap: $no-wrap,
+  $align: $normal
+) {
+  display: flex;
+  justify-content: $justify;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+  align-items: $align;
+  @content;
+}
+
+@mixin input {
+  height: 30px;
+  margin-top: 3px;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  border-radius: 5px;
+  outline: none;
+  font-family: $text-font;
+  &:focus {
+    border: 2.5px solid $primary-color;
+  }
 }

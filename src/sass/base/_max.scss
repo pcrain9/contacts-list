@@ -5,12 +5,11 @@ body {
 }
 
 #content-container {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
+  @include flex($center, $column);
 }
+
 @include mq(medium) {
   #content-container {
-    flex-direction: row;
+    flex-direction: $row;
   }
 }

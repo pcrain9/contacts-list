@@ -1,3 +1,15 @@
-#top-nav{
-    padding:20px;
+#top-nav {
+  padding: 20px;
+  @include flex($center);
+}
+.top-nav-title-container {
+  @include flex($flex-start, $row, $no-wrap, $center);
+}
+
+#top-nav-link {
+  text-decoration: none;
+  color:$primary-text;
+  &:hover{
+    color:$primary-color;
+  }
 }
