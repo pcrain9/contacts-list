@@ -14,7 +14,7 @@ import { singleUserProps } from "../commons/types";
 
 function Card(props: singleUserProps) {
   const [showSmallCard, setShowSmallCard] = useState(true);
-  const { user, expandedId, userExpandedNewCard } = props;
+  const { user, expandedId, userExpandedNewCard, editDelReducer } = props;
 
   useEffect(() => {
     if (!expandedId) return;
@@ -22,13 +22,16 @@ function Card(props: singleUserProps) {
     if (!showSmallCard && user.id !== expandedId) {
       setShowSmallCard(true);
     }
-  }, [expandedId]);
+  }, [expandedId, showSmallCard, user.id]);
   function expandCard() {
     setShowSmallCard(false);
     userExpandedNewCard(user.id);
   }
   function minimizeCard() {
     setShowSmallCard(true);
+  }
+  function handleUserClickedEditDel(type:string){
+    editDelReducer(type, user);
   }
   return (
     <>
@@ -41,7 +44,7 @@ function Card(props: singleUserProps) {
               </div> */}
             <div className="card-small-info-container">
                 <span className="card-icon-container">{smUserAvatar}</span>
-              <h3>
+              <h3 className="card-user-text">
                 {user.firstName} {user.lastName}
               </h3>
             </div>
@@ -56,8 +59,8 @@ function Card(props: singleUserProps) {
             <button id="card-small-button-view" onClick={expandCard}>
               {smallViewBtn}
             </button>
-            <button id="card-small-button-edit">{smallEditBtn}</button>
-            <button id="card-small-button-delete">{smallDelBtn}</button>
+            <button id="card-small-button-edit" onClick={() =>{handleUserClickedEditDel("EDIT")}}>{smallEditBtn}</button>
+            <button id="card-small-button-delete" onClick={() =>{handleUserClickedEditDel("DELETE")}}>{smallDelBtn}</button>
           </div>
         </div>
       ) : (
@@ -86,8 +89,8 @@ function Card(props: singleUserProps) {
             </div>
           </div>
           <div className="card-button-container">
-            <button id="card-large-button-edit">{smallEditBtn}</button>
-            <button id="card-large-button-delete">{smallDelBtn}</button>
+            <button id="card-large-button-edit" onClick={() =>{handleUserClickedEditDel("EDIT")}}>{smallEditBtn}</button>
+            <button id="card-large-button-delete" onClick={() =>{handleUserClickedEditDel("DELETE")}}>{smallDelBtn}</button>
           </div>
         </div>
       )}

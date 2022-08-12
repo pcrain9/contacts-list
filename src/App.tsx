@@ -1,35 +1,50 @@
 import React, { useState } from "react";
-import { Route, Routes } from "react-router-dom";
+import { useNavigate, Route, Routes } from "react-router-dom";
 import Home from "./pages/home.tsx";
 import Header from "./components/Header.tsx";
 import AddUser from "./pages/add-user.tsx";
+import EditUser from "./pages/edit-user.tsx";
 import "./sass/main.css";
 import DATA from "./resources/dummy-data.tsx";
 
 function App() {
   const[userList, setUserList] = useState(DATA);
-  // const[user, setUser] = useState({})
-
+  const[user, setUser] = useState({})
+  const navigate = useNavigate();
   function handleNewUserWasAdded(user:User){
     // setUser(user)
-    const tmp = userList.slice();
-    tmp.push(user)
-    setUserList(tmp)
+    const tmpUserArray = userList.slice();
+    tmpUserArray.push(user)
+    setUserList(tmpUserArray)
     // setUserList((prevUsers: User[]) => { 
     //   return prevUsers.push(user);
     // });
   }
-  function handleUserWasEdited(user:User){
-    // write function to find value in array and update setUserList()
+  function handleUserRequestedEdit(user:User){
+    //set user to whichever user we are going to edit here
+    setUser(user);
+    navigate("/edit-user");
+  }
+  function handleUserWasUpdated(user:User){
+    const tmpUserArray=userList.slice();
+    const key = tmpUserArray.findIndex((targetUser: User) => targetUser.id === user.id);
+    tmpUserArray.splice(key, 1, user);
+    setUserList(tmpUserArray);
+  }
+  function handleUserRequestedDelete(user: User){
+    const tmpUserArray=userList.slice();
+    const key = tmpUserArray.findIndex((targetUser: User) => targetUser.id === user.id);
+    tmpUserArray.splice(key, 1);
+    setUserList(tmpUserArray);
   }
   return (
     <>
       <Header />
       <div id="content-container">
         <Routes>
-          <Route path="/" element={<Home userList={userList} />} />
+          <Route path="/" element={<Home userList={userList} handleUserRequestedEdit={handleUserRequestedEdit} handleUserRequestedDelete={handleUserRequestedDelete} />} />
           <Route path="/add-user" element={<AddUser handleNewUserWasAdded={handleNewUserWasAdded}/>} />
-        {/*   <Route path="/edit-user" element={<EditUser user/>} /> */}
+          <Route path="/edit-user" element={<EditUser user={user} handleUserWasUpdated={handleUserWasUpdated}/>} />
         </Routes>
       </div>
     </>

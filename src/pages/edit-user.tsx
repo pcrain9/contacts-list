@@ -1,34 +1,35 @@
-import React, { FormEvent, useState } from "react";
+import React, { FormEvent, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
-import { addNewUserThruProps } from "../commons/types";
+import { editUserThruProps } from "../commons/types";
 import PhoneInputWithCountrySelect from "react-phone-number-input";
 
-// const initState = { id: "", firstName: "", lastName: "", email: "", phoneNumber: "" };
-
-function AddUser(props: addNewUserThruProps) {
-  const [newUserInfo, setNewUserInfo] = useState({
-    id: Math.random(),
-    firstName: "",
-    lastName: "",
-    email: "",
-    phoneNumber: "",
-  });
-  const [phone, setPhone] = useState("");
+function EditUser(props: editUserThruProps) {
+  const { user, handleUserWasUpdated } = props;
+  const [editedUser, setEditedUser] = useState(user);
+  const [phone, setPhone] = useState(user.phoneNumber);
   const navigate = useNavigate();
-  const { handleNewUserWasAdded } = props;
 
+  //don't allow users to navigate to /edit-user from address bar
+  useEffect(() => {
+    console.log("user", user);
+    if (Object.keys(user).length === 0) {
+      navigate("/");
+    }
+  }, []);
   function handleSubmit(event: FormEvent) {
     event.preventDefault();
-    const tmpUser = newUserInfo
+
+    const tmpUser = editedUser;
     tmpUser.phoneNumber = phone;
-    handleNewUserWasAdded(tmpUser);
+    handleUserWasUpdated(tmpUser);
     navigate("/");
   }
   return (
     <>
       <form id="form" onSubmit={handleSubmit}>
-        <h2 id="add-user-title-text">Add A New User</h2>
+        <h2 id="add-user-title-text">Edit User</h2>
         <div id="form-contents-container">
           <div className="add-user-form-content">
             <label>
@@ -38,12 +39,12 @@ function AddUser(props: addNewUserThruProps) {
               className="add-user-input"
               maxLength={20}
               minLength={2}
-              onInvalid="this.setCustomValidity('foooooooo')"
               required
               type={"text"}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                setNewUserInfo({ ...newUserInfo, firstName: e.target.value });
+                setEditedUser({ ...editedUser, firstName: e.target.value });
               }}
+              value={editedUser.firstName}
             />
           </div>
           <div className="add-user-form-content">
@@ -57,8 +58,9 @@ function AddUser(props: addNewUserThruProps) {
               required
               type={"text"}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                setNewUserInfo({ ...newUserInfo, lastName: e.target.value });
+                setEditedUser({ ...editedUser, lastName: e.target.value });
               }}
+              value={editedUser.lastName}
             />
           </div>
           <div className="add-user-form-content">
@@ -70,13 +72,13 @@ function AddUser(props: addNewUserThruProps) {
               type={"email"}
               maxLength={20}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                setNewUserInfo({ ...newUserInfo, email: e.target.value });
+                setEditedUser({ ...editedUser, email: e.target.value });
               }}
               required
+              value={editedUser.email}
             />
           </div>
           <div className="add-user-form-content">
-            {" "}
             <label>
               Phone <span className="asterisk"> * </span>{" "}
             </label>
@@ -86,11 +88,11 @@ function AddUser(props: addNewUserThruProps) {
               required
               value={phone}
               onChange={setPhone}
-            />
+            />{" "}
           </div>
           <div id="add-user-button-container">
             <button id="add-user-submit-button" type="submit">
-              Add User
+              Udpate User
             </button>
             <Link to="/" id="cancel-link">
               Cancel
@@ -102,4 +104,4 @@ function AddUser(props: addNewUserThruProps) {
   );
 }
 
-export default AddUser;
+export default EditUser;

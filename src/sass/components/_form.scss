@@ -1,42 +1,41 @@
-#form{
-    box-shadow: $box-shadow-secondary;
-    border-radius:5px;
-    border:1px solid $primary-text;
-    min-width:400px;
-    min-height:500px;
-    padding:10px;
+#form {
+  box-shadow: $box-shadow-secondary;
+  border-radius: 5px;
+  border: 1px solid $primary-text;
+  min-width: 200px;
+  min-height: 300px;
+  padding: 10px;
+  margin: 40px;
+  @include mq(medium) {
+    margin: 0;
+    min-width: 400px;
+    min-height: 500px;
+  }
 }
-#add-user-title-text{
-    text-align: center;
+#add-user-title-text {
+  text-align: center;
 }
-#form-contents-container{
-    @include flex($space-evenly, $column);
+#form-contents-container {
+  @include flex($space-evenly, $column);
 }
-.add-user-form-content{
-    @include flex($normal, $column);
-    margin:25px;
+.add-user-form-content {
+  @include flex($normal, $column);
+  margin: 25px;
 }
-.asterisk{
-    color:$danger-color;
+.asterisk {
+  color: $danger-color;
 }
-.add-user-input{
-    @include input;
+.add-user-input {
+  @include input;
 }
-#add-user-button-container{
-    @include flex($space-evenly);
-    margin:25px 0px;
+#add-user-button-container {
+  @include flex($space-evenly, $column, $no-wrap, $center);
+  margin: 25px 0px;
 }
 
-#add-user-cancel-button{
-    @include btn($danger-color, $danger-color-hover);
-    height:40px;
-    width:165px;
-    font-weight: bold;
+#cancel-link {
+  margin-top: 10px;
 }
-#add-user-submit-button{
-    @include btn($primary-color, $primary-color-hover);
-    height:40px;
-    width:165px;
-    font-weight: bold;
-
+.PhoneInputInput{
+  height:30px;
 }

@@ -1,0 +1,17 @@
+#delete-screen-container {
+  height: 300px;
+  width: 400px;
+  border-radius: 5px;
+
+  @include flex($space-evenly, $column, $no-wrap, $center);
+  background-color: white;
+}
+
+#delete-button-container {
+  @include flex($space-evenly, $row, $no-wrap, $center);
+  width: 100%;
+}
+
+#delete-screen-text{
+  text-align:center;
+}

@@ -5,25 +5,27 @@
   margin: 15px;
   padding: 25px;
   box-shadow: $box-shadow;
-  // cursor:pointer;
+  transition: 200ms;
 }
 
-#card-small-top-container {
-}
 .card-button-container {
   @include flex($space-evenly);
 }
-.card-small-info-container{
-    @include flex($normal, $row, $no-wrap, $center)
+.card-small-info-container {
+  @include flex($normal, $row, $no-wrap, $center);
 }
 #card-large {
   @include flex($space-between, $column);
-  min-width: 500px;
-  min-height: 550px;
+  width: 300px;
+  height: 400px;
   margin: 15px;
   padding: 25px;
   box-shadow: $box-shadow;
-  // cursor:pointer;
+  transition: 200ms ease-in;
+  @include mq(medium) {
+    width: 500px;
+    height: 550px;
+  }
 }
 #card-large-top-container {
   @include flex($normal, $column);
@@ -31,17 +33,20 @@
 
 #card-large-top-user-info-container {
   @include flex($center, $column);
-  width:100%;
+  width: 100%;
 }
-#card-large-user-info-container{
-    @include flex($normal, $column, $no-wrap, $center);
+#card-large-user-info-container {
+  @include flex($normal, $column, $no-wrap, $center);
 }
-.card-large-other-info-container{
-    @include flex($center, $row, $no-wrap, $center);
+.card-large-other-info-container {
+  @include flex($center, $row, $no-wrap, $center);
 }
-.card-icon-container{
-    margin-right:10px;
+.card-icon-container {
+  margin-right: 10px;
 }
 #card-large-back-btn-container {
   @include flex($flex-end);
+}
+.card-user-text {
+  padding-bottom: 5px;
 }

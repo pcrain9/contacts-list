@@ -32,6 +32,10 @@ $primary-color: #1a1f71;
 /// @type Color
 $primary-color-hover: #003ea9;
 /// @type Color
+$success-color: #2e982e;
+/// @type Color
+$success-color-hover: #30ce38;
+/// @type Color
 $secondary-color: #f7b600;
 /// @type Color
 $secondary-color-hover: #FFD700;
@@ -41,7 +45,6 @@ $danger-color:#D50000;
 $danger-color-hover:#ef4c4c;
 /// @type Color
 $modal-backdrop:rgba(35,46,70,.1);
-//backdrop-filter: blur(2px);
 
 //from: https://getcssscan.com/css-box-shadow-examples
 /// @type BoxShadow

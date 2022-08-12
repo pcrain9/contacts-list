@@ -10,7 +10,7 @@
 
 #home-page-container{
     @include flex(null, $column);
-    max-width: 1500px;
+    max-width: 1140px;
 }
 #add-button-container{
     @include flex($flex-end);

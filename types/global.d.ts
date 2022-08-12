@@ -1,5 +1,3 @@
-export {};
-
 declare global {
   interface User {
     id: number;
@@ -9,3 +7,4 @@ declare global {
     phoneNumber: string;
   }
 }
+export {};

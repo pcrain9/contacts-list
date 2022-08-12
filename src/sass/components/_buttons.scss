@@ -7,7 +7,7 @@
   color: $secondary-text;
   box-shadow: $box-shadow;
   font-size: 40px;
-  font-weight:bold;
+  font-weight: bold;
   border: 0px;
   cursor: pointer;
   &:hover {
@@ -25,22 +25,51 @@
   @include btn($danger-color, $danger-color-hover);
 }
 
-#large-back-btn{
+#large-back-btn {
   background-color: white;
   border-radius: 50%;
   height: 40px;
   width: 40px;
-  padding-top:5px;
+  padding-top: 5px;
   color: $primary-color;
   border: 1.5px solid $primary-color;
   cursor: pointer;
 }
 
-#card-large-button-edit{
+#card-large-button-edit {
   @include btn($secondary-color, $secondary-color-hover);
-  width:150px;
+  width: 100px;
+  @include mq(medium) {
+    width: 150px;
+  }
 }
-#card-large-button-delete{
+#card-large-button-delete {
   @include btn($danger-color, $danger-color-hover);
-  width:150px;
+  width: 100px;
+  @include mq(medium) {
+    width: 150px;
+  }
+}
+
+#add-user-submit-button {
+  @include btn($success-color, $success-color-hover);
+  height: 50px;
+  width: 240px;
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 10px;
+  @include mq(medium) {
+    width: 300px;
+  }
+}
+
+#delete-button-cancel {
+  color: $primary-text;
+  cursor: pointer;
+}
+#delete-button-confirm {
+  @include btn($danger-color, $danger-color-hover);
+  width: 150px;
+  height: 50px;
+  font-size: 16px;
 }
