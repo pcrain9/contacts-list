@@ -7,7 +7,6 @@ export interface singleUserProps {
 
 export interface userProps {
   userList: User[];
-  user: User;
   handleUserRequestedEdit: Function;
   handleUserRequestedDelete: Function;
 }
