@@ -14,6 +14,8 @@ $space-evenly: space-evenly;
 /// @type FlexControl
 $space-between: space-between;
 /// @type FlexControl
+$space-around: space-around;
+/// @type FlexControl
 $column: column;
 /// @type FlexControl
 $row: row;
@@ -45,6 +47,8 @@ $danger-color:#D50000;
 $danger-color-hover:#ef4c4c;
 /// @type Color
 $modal-backdrop:rgba(35,46,70,.1);
+/// @type Color
+$light-background:#EEEEEE;
 
 //from: https://getcssscan.com/css-box-shadow-examples
 /// @type BoxShadow

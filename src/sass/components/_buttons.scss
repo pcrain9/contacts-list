@@ -1,4 +1,5 @@
 #add-button {
+  @include flex($center, $row, $no-wrap, $center);
   background-color: $primary-color;
   border-radius: 50%;
   height: 50px;
@@ -9,7 +10,9 @@
   font-size: 40px;
   font-weight: bold;
   border: 0px;
+  text-decoration: none;
   cursor: pointer;
+  -webkit-appearance: none;
   &:hover {
     background-color: $primary-color-hover;
   }
@@ -51,7 +54,7 @@
   }
 }
 
-#add-user-submit-button {
+#form-user-submit-button {
   @include btn($success-color, $success-color-hover);
   height: 50px;
   width: 240px;

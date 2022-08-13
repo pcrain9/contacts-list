@@ -44,8 +44,8 @@ function Home(props: userProps) {
         )}
       <div id="home-page-container">
         <div id="add-button-container">
-          <Link to="/add-user">
-            <button id="add-button">+</button>
+          <Link to="/add-user" id="add-button">
+            +
           </Link>
         </div>
         <div id="card-container">

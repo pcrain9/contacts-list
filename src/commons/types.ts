@@ -1,25 +1,24 @@
-
 export interface singleUserProps {
-    user: User;
-    expandedId: number;
-    userExpandedNewCard: Function;
-    editDelReducer: Function;
-  }
+  user: User;
+  expandedId: number;
+  userExpandedNewCard: Function;
+  editDelReducer: Function;
+}
 
 export interface userProps {
-    userList: User[];
-    user: User;
-    handleUserRequestedEdit:Function;
-    handleUserRequestedDelete:Function;
-  }
+  userList: User[];
+  user: User;
+  handleUserRequestedEdit: Function;
+  handleUserRequestedDelete: Function;
+}
 
 export interface addNewUserThruProps {
-    handleNewUserWasAdded(user:User):void;
 }
 
 export interface editUserThruProps {
   user: User;
-  handleUserWasUpdated:Function;
+  handleUserWasUpdated: Function;
+  handleNewUserWasAdded(user: User): void;
 }
 
 export interface userDeletedThruProps {

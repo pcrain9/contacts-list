@@ -1,43 +1,58 @@
 import React, { FormEvent, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import { editUserThruProps } from "../commons/types";
 import PhoneInputWithCountrySelect from "react-phone-number-input";
 
-function EditUser(props: editUserThruProps) {
-  const { user, handleUserWasUpdated } = props;
-  const [editedUser, setEditedUser] = useState(user);
-  const [phone, setPhone] = useState(user.phoneNumber);
+const INITUSER = {
+  id: Math.random(),
+  firstName: "",
+  lastName: "",
+  email: "",
+  phoneNumber: "",
+};
+
+function UserForm(props: editUserThruProps) {
+  const { user, handleUserWasUpdated, handleNewUserWasAdded } = props;
+  const editScreen = user ? true : false;
+  const [editedUser, setEditedUser] = useState(editScreen ? user : INITUSER);
+  const [phone, setPhone] = useState(editScreen ? user.phoneNumber : "");
   const navigate = useNavigate();
 
   //don't allow users to navigate to /edit-user from address bar
   useEffect(() => {
-    console.log("user", user);
-    if (Object.keys(user).length === 0) {
+    console.log("rerendered");
+    if (user && Object.keys(user).length === 0) {
       navigate("/");
     }
-  }, []);
+  }, [user, navigate]);
+
   function handleSubmit(event: FormEvent) {
     event.preventDefault();
 
     const tmpUser = editedUser;
     tmpUser.phoneNumber = phone;
-    handleUserWasUpdated(tmpUser);
+    if (editScreen) {
+      handleUserWasUpdated(tmpUser);
+    } else {
+      handleNewUserWasAdded(tmpUser);
+    }
     navigate("/");
   }
   return (
     <>
       <form id="form" onSubmit={handleSubmit}>
-        <h2 id="add-user-title-text">Edit User</h2>
+        <h2 id="form-user-title-text">
+          {editScreen ? "Edit User" : "Add a New User"}
+        </h2>
         <div id="form-contents-container">
-          <div className="add-user-form-content">
+          <div className="form-user-content">
             <label>
               First Name <span className="asterisk"> * </span>
             </label>
             <input
-              className="add-user-input"
-              maxLength={20}
+              className="form-user-input"
+              maxLength={14}
               minLength={2}
               required
               type={"text"}
@@ -47,13 +62,13 @@ function EditUser(props: editUserThruProps) {
               value={editedUser.firstName}
             />
           </div>
-          <div className="add-user-form-content">
+          <div className="form-user-content">
             <label>
               Last Name <span className="asterisk"> * </span>
             </label>
             <input
-              className="add-user-input"
-              maxLength={20}
+              className="form-user-input"
+              maxLength={14}
               minLength={2}
               required
               type={"text"}
@@ -63,12 +78,12 @@ function EditUser(props: editUserThruProps) {
               value={editedUser.lastName}
             />
           </div>
-          <div className="add-user-form-content">
+          <div className="form-user-content">
             <label>
               Email <span className="asterisk"> * </span>
             </label>
             <input
-              className="add-user-input"
+              className="form-user-input"
               type={"email"}
               maxLength={20}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
@@ -78,7 +93,7 @@ function EditUser(props: editUserThruProps) {
               value={editedUser.email}
             />
           </div>
-          <div className="add-user-form-content">
+          <div className="form-user-content">
             <label>
               Phone <span className="asterisk"> * </span>{" "}
             </label>
@@ -90,18 +105,18 @@ function EditUser(props: editUserThruProps) {
               onChange={setPhone}
             />{" "}
           </div>
-          <div id="add-user-button-container">
-            <button id="add-user-submit-button" type="submit">
-              Udpate User
-            </button>
-            <Link to="/" id="cancel-link">
-              Cancel
-            </Link>
-          </div>
+        </div>
+        <div id="form-user-button-container">
+          <button id="form-user-submit-button" type="submit">
+            {editScreen ? "Update User" : "Add User"}
+          </button>
+          <Link to="/" id="cancel-link">
+            Cancel
+          </Link>
         </div>
       </form>
     </>
   );
 }
 
-export default EditUser;
+export default UserForm;

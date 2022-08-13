@@ -1,6 +1,7 @@
 #top-nav {
   padding: 20px;
   @include flex($center);
+  background-color: $secondary-text;
 }
 .top-nav-title-container {
   @include flex($flex-start, $row, $no-wrap, $center);

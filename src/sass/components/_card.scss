@@ -1,18 +1,31 @@
 #card-small {
   @include flex($space-between, $column);
-  width: 200px;
-  height: 250px;
-  margin: 15px;
+  width: 130px;
+  height: 220px;
+  margin: 3px;
   padding: 25px;
   box-shadow: $box-shadow;
   transition: 200ms;
+  background-color: $secondary-text;
+  @include mq(medium) {
+    width: 200px;
+    height: 250px;
+    margin: 15px;
+  }
+}
+#card-small-top-container{
+  height:210px;
+}
+.card-button-container {
+  @include flex($space-evenly, $row, $no-wrap, $flex-end);
 }
 
-.card-button-container {
-  @include flex($space-evenly);
-}
 .card-small-info-container {
-  @include flex($normal, $row, $no-wrap, $center);
+  @include flex($normal, $column, $no-wrap, $center);
+  height:120px;
+  @include mq(medium){
+    flex-direction: $row;
+  }
 }
 #card-large {
   @include flex($space-between, $column);
@@ -22,6 +35,7 @@
   padding: 25px;
   box-shadow: $box-shadow;
   transition: 200ms ease-in;
+  background-color: $secondary-text;
   @include mq(medium) {
     width: 500px;
     height: 550px;
@@ -49,4 +63,8 @@
 }
 .card-user-text {
   padding-bottom: 5px;
+  text-align: center;
+  @include mq(medium){
+    text-align: left;
+  }
 }

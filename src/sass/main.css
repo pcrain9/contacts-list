@@ -1,21 +1,18 @@
 body {
+  margin: 0;
+  padding: 0;
   font-family: "Open Sans";
   color: #5c5c5c;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
-}
-
 #content-container {
+  background-color: #EEEEEE;
   display: flex;
   justify-content: center;
   flex-direction: column;
   flex-wrap: no-wrap;
   align-items: normal;
+  margin-top: 10px;
 }
 
 @media screen and (min-width: 768px) {
@@ -42,6 +39,11 @@ body {
 }
 
 #add-button {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: no-wrap;
+  align-items: center;
   background-color: #1a1f71;
   border-radius: 50%;
   height: 50px;
@@ -52,7 +54,9 @@ body {
   font-size: 40px;
   font-weight: bold;
   border: 0px;
+  text-decoration: none;
   cursor: pointer;
+  -webkit-appearance: none;
 }
 #add-button:hover {
   background-color: #003ea9;
@@ -141,7 +145,7 @@ body {
   }
 }
 
-#add-user-submit-button {
+#form-user-submit-button {
   background-color: #2e982e;
   color: #ffffff;
   border: 1px solid white;
@@ -154,11 +158,11 @@ body {
   font-size: 20px;
   margin-bottom: 10px;
 }
-#add-user-submit-button:hover {
+#form-user-submit-button:hover {
   background-color: #30ce38;
 }
 @media screen and (min-width: 768px) {
-  #add-user-submit-button {
+  #form-user-submit-button {
     width: 300px;
   }
 }
@@ -189,12 +193,24 @@ body {
   flex-direction: column;
   flex-wrap: no-wrap;
   align-items: normal;
-  width: 200px;
-  height: 250px;
-  margin: 15px;
+  width: 130px;
+  height: 220px;
+  margin: 3px;
   padding: 25px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
   transition: 200ms;
+  background-color: #ffffff;
+}
+@media screen and (min-width: 768px) {
+  #card-small {
+    width: 200px;
+    height: 250px;
+    margin: 15px;
+  }
+}
+
+#card-small-top-container {
+  height: 210px;
 }
 
 .card-button-container {
@@ -202,15 +218,21 @@ body {
   justify-content: space-evenly;
   flex-direction: row;
   flex-wrap: no-wrap;
-  align-items: normal;
+  align-items: flex-end;
 }
 
 .card-small-info-container {
   display: flex;
   justify-content: normal;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: no-wrap;
   align-items: center;
+  height: 120px;
+}
+@media screen and (min-width: 768px) {
+  .card-small-info-container {
+    flex-direction: row;
+  }
 }
 
 #card-large {
@@ -225,6 +247,7 @@ body {
   padding: 25px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
   transition: 200ms ease-in;
+  background-color: #ffffff;
 }
 @media screen and (min-width: 768px) {
   #card-large {
@@ -280,9 +303,16 @@ body {
 
 .card-user-text {
   padding-bottom: 5px;
+  text-align: center;
+}
+@media screen and (min-width: 768px) {
+  .card-user-text {
+    text-align: left;
+  }
 }
 
 #form {
+  background-color: #ffffff;
   box-shadow: rgba(18, 79, 222, 0.15) 0px 2px 8px;
   border-radius: 5px;
   border: 1px solid #5c5c5c;
@@ -299,7 +329,7 @@ body {
   }
 }
 
-#add-user-title-text {
+#form-user-title-text {
   text-align: center;
 }
 
@@ -311,7 +341,7 @@ body {
   align-items: normal;
 }
 
-.add-user-form-content {
+.form-user-content {
   display: flex;
   justify-content: normal;
   flex-direction: column;
@@ -324,7 +354,7 @@ body {
   color: #D50000;
 }
 
-.add-user-input {
+.form-user-input {
   height: 30px;
   margin-top: 3px;
   padding: 2px 8px;
@@ -336,11 +366,11 @@ body {
   border-style: solid;
   border-width: 1px;
 }
-.add-user-input:focus {
+.form-user-input:focus {
   border: 2.5px solid #1a1f71;
 }
 
-#add-user-button-container {
+#form-user-button-container {
   display: flex;
   justify-content: space-evenly;
   flex-direction: column;
@@ -385,16 +415,11 @@ body {
 #card-container {
   display: flex;
   justify-content: center;
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
 }
 
-@media screen and (min-width: 768px) {
-  #card-container {
-    flex-direction: row;
-  }
-}
 #home-page-container {
   display: flex;
   flex-direction: column;
@@ -409,6 +434,7 @@ body {
   flex-direction: row;
   flex-wrap: no-wrap;
   align-items: normal;
+  margin: 10px;
 }
 
 #top-nav {
@@ -418,6 +444,7 @@ body {
   flex-direction: row;
   flex-wrap: no-wrap;
   align-items: normal;
+  background-color: #ffffff;
 }
 
 .top-nav-title-container {
@@ -434,4 +461,18 @@ body {
 }
 #top-nav-link:hover {
   color: #1a1f71;
+}
+
+#footer {
+  width: 100%;
+  background-color: white;
+}
+
+#footer-text {
+  color: #5c5c5c;
+  display: flex;
+}
+
+#footer-text-container {
+  margin-left: 15px;
 }/*# sourceMappingURL=main.css.map */

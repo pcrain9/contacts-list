@@ -1,4 +1,5 @@
 #form {
+  background-color: $secondary-text;
   box-shadow: $box-shadow-secondary;
   border-radius: 5px;
   border: 1px solid $primary-text;
@@ -12,23 +13,23 @@
     min-height: 500px;
   }
 }
-#add-user-title-text {
+#form-user-title-text {
   text-align: center;
 }
 #form-contents-container {
   @include flex($space-evenly, $column);
 }
-.add-user-form-content {
+.form-user-content {
   @include flex($normal, $column);
   margin: 25px;
 }
 .asterisk {
   color: $danger-color;
 }
-.add-user-input {
+.form-user-input {
   @include input;
 }
-#add-user-button-container {
+#form-user-button-container {
   @include flex($space-evenly, $column, $no-wrap, $center);
   margin: 25px 0px;
 }
