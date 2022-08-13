@@ -461,18 +461,4 @@ body {
 }
 #top-nav-link:hover {
   color: #1a1f71;
-}
-
-#footer {
-  width: 100%;
-  background-color: white;
-}
-
-#footer-text {
-  color: #5c5c5c;
-  display: flex;
-}
-
-#footer-text-container {
-  margin-left: 15px;
 }/*# sourceMappingURL=main.css.map */

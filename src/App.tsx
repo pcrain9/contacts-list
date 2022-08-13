@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, Route, Routes } from "react-router-dom";
-import Home from "./pages/home.tsx";
+import Home from "./pages/home";
 import Header from "./components/Header.tsx";
-import Footer from "./components/Footer.tsx";
 import UserForm from "./pages/user-form.tsx";
 import "./sass/main.css";
 import DATA from "./resources/dummy-data.tsx";
@@ -12,16 +11,11 @@ function App() {
   const [user, setUser] = useState({});
   const navigate = useNavigate();
   function handleNewUserWasAdded(user: User) {
-    // setUser(user)
     const tmpUserArray = userList.slice();
     tmpUserArray.push(user);
     setUserList(tmpUserArray);
-    // setUserList((prevUsers: User[]) => {
-    //   return prevUsers.push(user);
-    // });
   }
   function handleUserRequestedEdit(user: User) {
-    //set user to whichever user we are going to edit here
     setUser(user);
     navigate("/edit-user");
   }
@@ -71,7 +65,6 @@ function App() {
           />
         </Routes>
       </div>
-      <Footer />
     </>
   );
 }

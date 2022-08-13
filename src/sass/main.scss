@@ -1,10 +1,18 @@
+//contains all variables in the project
 @import "abstracts/variables";
+//contains all mix-ins in the project
 @import "abstracts/mixins";
+//main shell stylings and modal overlay
 @import "base/body";
+//stylings for buttons in the app
 @import "components/buttons";
+//stylings for cards in the app
 @import "components/card";
+//stylings related to form comopnent
 @import "components/form";
+//delete screen stylings
 @import "layout/delete-screen";
+//contains the flexbox stylings for the app
 @import "layout/grid";
+//header component stylings
 @import "layout/header";
-@import "layout/footer";
