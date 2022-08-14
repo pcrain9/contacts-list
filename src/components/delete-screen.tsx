@@ -1,5 +1,6 @@
 import React from "react";
 import { userDeletedThruProps } from "../commons/types";
+
 function DeleteScreen(props: userDeletedThruProps) {
   const { handleUserCancelledDelete, handleUserConfirmedDelete, user } = props;
 

@@ -2,40 +2,48 @@ import React, { FormEvent, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "react-phone-number-input/style.css";
 import { editUserThruProps } from "../commons/types";
-import PhoneInputWithCountrySelect from "react-phone-number-input";
-
-const INITUSER = {
-  id: Math.random(),
-  firstName: "",
-  lastName: "",
-  email: "",
-  phoneNumber: "",
-};
+// import PhoneInputWithCountrySelect from "react-phone-number-input";
+import PhoneInput, {
+  formatPhoneNumber,
+  isValidPhoneNumber,
+} from "react-phone-number-input";
+import { emptyUser } from "../resources/dummy-data";
 
 function UserForm(props: editUserThruProps) {
   const { user, handleUserWasUpdated, handleNewUserWasAdded } = props;
-  const editScreen = user ? true : false;
-  const [editedUser, setEditedUser] = useState(editScreen ? user : INITUSER);
-  const [phone, setPhone] = useState(editScreen ? user.phoneNumber : "");
+  const editScreen =
+    window.location.pathname.search("edit-user") !== -1 ? true : false;
+  const [editedUser, setEditedUser] = useState(user);
+  const [phone, setPhone] = useState(editScreen ? "+1" + user.phoneNumber : "");
   const navigate = useNavigate();
 
   //don't allow users to navigate to /edit-user from address bar
   useEffect(() => {
-    console.log("rerendered");
-    if (user && Object.keys(user).length === 0) {
+    if (editScreen && user === emptyUser) {
       navigate("/");
     }
-  }, [user, navigate]);
+  }, [user, editScreen, navigate]);
 
   function handleSubmit(event: FormEvent) {
     event.preventDefault();
-
-    const tmpUser = editedUser;
-    tmpUser.phoneNumber = phone;
+    if (phone && !isValidPhoneNumber(phone)) {
+      return;
+    }
+    //simpled data cleanup, could be handled on backend.
+    const tmpUser: User = editedUser;
+    tmpUser.id = Math.random();
+    tmpUser.firstName =
+      tmpUser.firstName.charAt(0).toUpperCase() +
+      tmpUser.firstName.slice(1, tmpUser.firstName.length).trim();
+    tmpUser.lastName =
+      tmpUser.lastName.charAt(0).toUpperCase() +
+      tmpUser.lastName.slice(1, tmpUser.lastName.length).trim();
+    tmpUser.email = tmpUser.email.trim();
+    tmpUser.phoneNumber = formatPhoneNumber(phone);
     if (editScreen) {
-      handleUserWasUpdated(tmpUser);
+      handleUserWasUpdated?.(tmpUser);
     } else {
-      handleNewUserWasAdded(tmpUser);
+      handleNewUserWasAdded?.(tmpUser);
     }
     navigate("/");
   }
@@ -97,13 +105,24 @@ function UserForm(props: editUserThruProps) {
             <label>
               Phone <span className="asterisk"> * </span>{" "}
             </label>
-            <PhoneInputWithCountrySelect
+            <PhoneInput
+              initialValueFormat="national"
               defaultCountry="US"
+              error={
+                phone
+                  ? isValidPhoneNumber(phone)
+                    ? undefined
+                    : "Invalid phone number"
+                  : "Phone number required"
+              }
               placeholder="Enter phone number"
               required
               value={phone}
               onChange={setPhone}
             />{" "}
+            {phone && !isValidPhoneNumber(phone) ? (
+              <h4 id="form-phone-error-message">Invalid phone number</h4>
+            ) : null}
           </div>
         </div>
         <div id="form-user-button-container">

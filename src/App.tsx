@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import { useNavigate, Route, Routes } from "react-router-dom";
 import Home from "./pages/home";
-import Header from "./components/Header.tsx";
-import UserForm from "./pages/user-form.tsx";
+import Header from "./components/Header";
+import UserForm from "./pages/user-form";
 import "./sass/main.css";
-import DATA from "./resources/dummy-data.tsx";
+import { USERLIST, emptyUser } from "./resources/dummy-data";
 
 function App() {
-  const [userList, setUserList] = useState(DATA);
-  const [user, setUser] = useState({});
+  const [userList, setUserList] = useState(USERLIST);
+  const [user, setUser] = useState(emptyUser);
   const navigate = useNavigate();
+
   function handleNewUserWasAdded(user: User) {
     const tmpUserArray = userList.slice();
     tmpUserArray.push(user);
@@ -52,7 +53,12 @@ function App() {
           />
           <Route
             path="/add-user"
-            element={<UserForm handleNewUserWasAdded={handleNewUserWasAdded} />}
+            element={
+              <UserForm
+                user={emptyUser}
+                handleNewUserWasAdded={handleNewUserWasAdded}
+              />
+            }
           />
           <Route
             path="/edit-user"

@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { Link } from "react-router-dom";
-import Card from "../components/Card.tsx";
-import ModalBackdrop from "../components/modal-backdrop.tsx";
+import Card from "../components/Card";
+import ModalBackdrop from "../components/modal-backdrop";
 import { userProps } from "../commons/types";
-import DeleteScreen from "../components/delete-screen.tsx";
+import DeleteScreen from "../components/delete-screen";
+import { emptyUser } from "../resources/dummy-data";
 
 function Home(props: userProps) {
   const [expandedId, setExpandedId] = useState(-1);
   const [showModal, setShowModal] = useState(false);
-  const [userToDelete, setUserToDelete] = useState({});
+  const [userToDelete, setUserToDelete] = useState(emptyUser);
   const { userList, handleUserRequestedEdit, handleUserRequestedDelete } =
     props;
   function userExpandedNewCard(id: number) {
@@ -22,7 +23,7 @@ function Home(props: userProps) {
     }
     if (type === "DELETE") {
       setShowModal(true);
-      setUserToDelete(user)
+      setUserToDelete(user);
     }
   }
 
@@ -30,7 +31,11 @@ function Home(props: userProps) {
     <>
       {showModal &&
         ReactDOM.createPortal(
-          <ModalBackdrop handleUserClickedModalBackground={()=>{setShowModal(false)}}>
+          <ModalBackdrop
+            handleUserClickedModalBackground={() => {
+              setShowModal(false);
+            }}
+          >
             <DeleteScreen
               handleUserCancelledDelete={() => setShowModal(false)}
               handleUserConfirmedDelete={() => {

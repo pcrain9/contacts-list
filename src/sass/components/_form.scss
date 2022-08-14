@@ -4,13 +4,12 @@
   border-radius: 5px;
   border: 1px solid $primary-text;
   min-width: 200px;
-  min-height: 300px;
   padding: 10px;
   margin: 40px;
+  height:665px;
   @include mq(medium) {
-    margin: 0;
+    margin: 10px;
     min-width: 400px;
-    min-height: 500px;
   }
 }
 #form-user-title-text {
@@ -39,4 +38,10 @@
 }
 .PhoneInputInput{
   height:30px;
+}
+#form-phone-error-message{
+  text-align:center;
+  padding-top:10px;
+  margin:0;
+  color:$danger-color;
 }

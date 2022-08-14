@@ -1,4 +1,4 @@
-//icons from: https://tabler-icons.io/ 
+//icons from: https://tabler-icons.io/
 
 export const smallViewBtn = (
   <svg

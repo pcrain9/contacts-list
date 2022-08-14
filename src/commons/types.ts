@@ -1,6 +1,6 @@
 export interface singleUserProps {
   user: User;
-  expandedId: number;
+  expandedId: number | null;
   userExpandedNewCard: Function;
   editDelReducer: Function;
 }
@@ -11,13 +11,10 @@ export interface userProps {
   handleUserRequestedDelete: Function;
 }
 
-export interface addNewUserThruProps {
-}
-
 export interface editUserThruProps {
   user: User;
-  handleUserWasUpdated: Function;
-  handleNewUserWasAdded(user: User): void;
+  handleUserWasUpdated?(user: User): void;
+  handleNewUserWasAdded?(user: User): void;
 }
 
 export interface userDeletedThruProps {

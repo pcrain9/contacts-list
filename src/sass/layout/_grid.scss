@@ -5,6 +5,7 @@
 #home-page-container {
   @include flex(null, $column);
   max-width: 1140px;
+  margin: 20px 0px;
 }
 #add-button-container {
   @include flex($flex-end);
