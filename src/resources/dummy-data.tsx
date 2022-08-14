@@ -60,7 +60,7 @@ export const USERLIST: User[] = [
     firstName: "Wendy",
     lastName: "Daniels",
     email: "wendy.daniels@example.com",
-    phoneNumber: "(681) 985-20629",
+    phoneNumber: "(681) 985-2069",
   },
   {
     id: 10,

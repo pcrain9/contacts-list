@@ -2,10 +2,9 @@ import React, { FormEvent, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "react-phone-number-input/style.css";
 import { editUserThruProps } from "../commons/types";
-// import PhoneInputWithCountrySelect from "react-phone-number-input";
 import PhoneInput, {
   formatPhoneNumber,
-  isValidPhoneNumber,
+  isPossiblePhoneNumber,
 } from "react-phone-number-input";
 import { emptyUser } from "../resources/dummy-data";
 
@@ -14,6 +13,7 @@ function UserForm(props: editUserThruProps) {
   const editScreen =
     window.location.pathname.search("edit-user") !== -1 ? true : false;
   const [editedUser, setEditedUser] = useState(user);
+  console.log("user.phoneNumber", user.phoneNumber)
   const [phone, setPhone] = useState(editScreen ? "+1" + user.phoneNumber : "");
   const navigate = useNavigate();
 
@@ -26,7 +26,7 @@ function UserForm(props: editUserThruProps) {
 
   function handleSubmit(event: FormEvent) {
     event.preventDefault();
-    if (phone && !isValidPhoneNumber(phone)) {
+    if (phone && !isPossiblePhoneNumber(phone)) {
       return;
     }
     //simple data cleanup, could be handled on backend.
@@ -113,7 +113,7 @@ function UserForm(props: editUserThruProps) {
               defaultCountry="US"
               error={
                 phone
-                  ? isValidPhoneNumber(phone)
+                  ? isPossiblePhoneNumber(phone)
                     ? undefined
                     : "Invalid phone number"
                   : "Phone number required"
@@ -123,7 +123,7 @@ function UserForm(props: editUserThruProps) {
               value={phone}
               onChange={setPhone}
             />{" "}
-            {phone && !isValidPhoneNumber(phone) ? (
+            {phone && !isPossiblePhoneNumber(phone) ? (
               <h4 id="form-phone-error-message">Invalid phone number</h4>
             ) : null}
           </div>
