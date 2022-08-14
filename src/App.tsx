@@ -21,6 +21,7 @@ function App() {
     navigate("/edit-user");
   }
   function handleUserWasUpdated(user: User) {
+    console.log("wasupdated", user)
     const tmpUserArray = userList.slice();
     const key = tmpUserArray.findIndex(
       (targetUser: User) => targetUser.id === user.id

@@ -29,9 +29,12 @@ function UserForm(props: editUserThruProps) {
     if (phone && !isValidPhoneNumber(phone)) {
       return;
     }
-    //simpled data cleanup, could be handled on backend.
+    //simple data cleanup, could be handled on backend.
     const tmpUser: User = editedUser;
-    tmpUser.id = Math.random();
+    //assign new user an id
+    if (tmpUser.id === "") {
+      tmpUser.id = Math.random();
+    }
     tmpUser.firstName =
       tmpUser.firstName.charAt(0).toUpperCase() +
       tmpUser.firstName.slice(1, tmpUser.firstName.length).trim();
