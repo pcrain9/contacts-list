@@ -13,8 +13,8 @@
     margin: 15px;
   }
 }
-#card-small-top-container{
-  height:210px;
+#card-small-top-container {
+  height: 210px;
 }
 .card-button-container {
   @include flex($space-evenly, $row, $no-wrap, $flex-end);
@@ -22,8 +22,8 @@
 
 .card-small-info-container {
   @include flex($normal, $column, $no-wrap, $center);
-  height:120px;
-  @include mq(medium){
+  height: 120px;
+  @include mq(medium) {
     flex-direction: $row;
   }
 }
@@ -64,7 +64,7 @@
 .card-user-text {
   padding-bottom: 5px;
   text-align: center;
-  @include mq(medium){
+  @include mq(medium) {
     text-align: left;
   }
 }

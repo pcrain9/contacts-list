@@ -1,4 +1,4 @@
-//mixin that will handle breakpoints, citation: https://jonsuh.com/blog/managing-responsive-breakpoints-with-sass-maps/
+//mixin that will handle breakpoints. Citation: https://jonsuh.com/blog/managing-responsive-breakpoints-with-sass-maps/
 @mixin mq($mq-breakpoint, $mq-breakpoints: $breakpoints) {
   @if map-has-key($mq-breakpoints, $mq-breakpoint) {
     $mq-breakpoint: map-get($mq-breakpoints, $mq-breakpoint);

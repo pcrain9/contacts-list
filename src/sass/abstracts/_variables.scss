@@ -24,13 +24,12 @@ $wrap: wrap;
 /// @type FlexControl
 $no-wrap: no-wrap;
 
-
 /// @type Color
 $primary-text: #5c5c5c;
 /// @type Color
 $secondary-text: #ffffff;
 /// @type Color
-$primary-color: #1a1f71; 
+$primary-color: #1a1f71;
 /// @type Color
 $primary-color-hover: #003ea9;
 /// @type Color
@@ -40,21 +39,22 @@ $success-color-hover: #30ce38;
 /// @type Color
 $secondary-color: #f7b600;
 /// @type Color
-$secondary-color-hover: #FFD700;
+$secondary-color-hover: #ffd700;
 /// @type Color
-$danger-color:#D50000;
+$danger-color: #d50000;
 /// @type Color
-$danger-color-hover:#ef4c4c;
+$danger-color-hover: #ef4c4c;
 /// @type Color
-$modal-backdrop:rgba(35,46,70,.1);
+$modal-backdrop: rgba(35, 46, 70, 0.1);
 /// @type Color
-$light-background:#EEEEEE;
+$light-background: #eeeeee;
 
 //from: https://getcssscan.com/css-box-shadow-examples
 /// @type BoxShadow
 $box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
 /// @type BoxShadow
 $box-shadow-secondary: rgba(18, 79, 222, 0.15) 0px 2px 8px;
+
 //bootstrap-defined breakpoints
 $breakpoints: (
   small: 576px,

@@ -1,6 +1,6 @@
 html {
   height: 100%;
-  background-color: #EEEEEE;
+  background-color: #eeeeee;
 }
 
 body {
@@ -11,7 +11,7 @@ body {
 }
 
 #content-container {
-  background-color: #EEEEEE;
+  background-color: #eeeeee;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -88,11 +88,11 @@ body {
   transition: opacity 0.2s ease-in, top 0.2s ease-in;
 }
 #card-small-button-edit:hover {
-  background-color: #FFD700;
+  background-color: #ffd700;
 }
 
 #card-small-button-delete {
-  background-color: #D50000;
+  background-color: #d50000;
   color: #ffffff;
   border: 1px solid white;
   border-radius: 5px;
@@ -124,7 +124,7 @@ body {
   width: 100px;
 }
 #card-large-button-edit:hover {
-  background-color: #FFD700;
+  background-color: #ffd700;
 }
 @media screen and (min-width: 768px) {
   #card-large-button-edit {
@@ -133,7 +133,7 @@ body {
 }
 
 #card-large-button-delete {
-  background-color: #D50000;
+  background-color: #d50000;
   color: #ffffff;
   border: 1px solid white;
   border-radius: 5px;
@@ -178,7 +178,7 @@ body {
 }
 
 #delete-button-confirm {
-  background-color: #D50000;
+  background-color: #d50000;
   color: #ffffff;
   border: 1px solid white;
   border-radius: 5px;
@@ -355,7 +355,7 @@ body {
 }
 
 .asterisk {
-  color: #D50000;
+  color: #d50000;
 }
 
 .form-user-input {
@@ -395,7 +395,7 @@ body {
   text-align: center;
   padding-top: 10px;
   margin: 0;
-  color: #D50000;
+  color: #d50000;
 }
 
 #delete-screen-container {
