@@ -4,7 +4,11 @@ function ModalBackdrop(props: any) {
   const { handleUserClickedModalBackground } = props;
 
   return (
-    <div id="modal-backdrop" onClick={handleUserClickedModalBackground}>
+    <div id="modal-backdrop">
+      <div
+        id="modal-close-listener"
+        onClick={handleUserClickedModalBackground}
+      />
       {props.children}
     </div>
   );

@@ -33,3 +33,11 @@ body {
   backdrop-filter: blur(2px);
   @include flex($center, $row, $no-wrap, $center);
 }
+
+#modal-close-listener {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}

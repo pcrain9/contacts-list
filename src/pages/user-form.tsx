@@ -13,7 +13,6 @@ function UserForm(props: editUserThruProps) {
   const editScreen =
     window.location.pathname.search("edit-user") !== -1 ? true : false;
   const [editedUser, setEditedUser] = useState(user);
-  console.log("user.phoneNumber", user.phoneNumber);
   const [phone, setPhone] = useState(editScreen ? "+1" + user.phoneNumber : "");
   const navigate = useNavigate();
 

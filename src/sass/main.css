@@ -43,6 +43,14 @@ body {
   align-items: center;
 }
 
+#modal-close-listener {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
 #add-button {
   display: flex;
   justify-content: center;
@@ -402,6 +410,7 @@ body {
   height: 300px;
   width: 400px;
   border-radius: 5px;
+  position: fixed;
   display: flex;
   justify-content: space-evenly;
   flex-direction: column;

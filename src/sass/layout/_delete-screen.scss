@@ -2,7 +2,7 @@
   height: 300px;
   width: 400px;
   border-radius: 5px;
-
+  position:fixed;
   @include flex($space-evenly, $column, $no-wrap, $center);
   background-color: white;
 }
